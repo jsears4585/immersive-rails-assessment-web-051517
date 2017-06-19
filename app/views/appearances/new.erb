@@ -1,0 +1,20 @@
+<h1>Create Appearance</h1>
+
+<div style="margin: 10px; padding: 10px; color: red">
+<%= @appearance.errors.full_messages.first if @appearance.errors.any? %>
+</div>
+
+<%= form_for @appearance do |f| %>
+
+  <%= f.label :guest %><br>
+  <%= f.collection_select :guest_id, Guest.all, :id, :name %><br>
+
+  <%= f.label :episode %><br>
+  <%= f.collection_select :episode_id, Episode.all, :id, :number %><br>
+
+  <%= f.label :rating %><br>
+  <%= f.number_field :rating %><br>
+  <br>
+  <%= f.submit %>
+
+<% end %>

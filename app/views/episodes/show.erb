@@ -1,0 +1,12 @@
+<h1>Episode Profile</h1>
+
+<% if @episode.guests.empty? %>
+  <h3>No appearances have been registered yet!</h3>
+<% else %>
+  <% @episode.guests.each do |guest| %>
+    <div style="background: #eaeaea; padding: 12px; border-radius: 12px; margin: 10px; width: 80%;">
+      <h4>Name: <%= link_to(guest.name, guest_path(guest)) %></h4>
+      <h4>Occupation: <%= guest.occupation.split.map(&:capitalize).join(' ') %></h4>
+    </div>
+  <% end %>
+<% end %>
